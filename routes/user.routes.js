@@ -8,7 +8,6 @@ import {
   emails,
   getAllUsers,
   auth,
-  signupFinish,
 } from "../services/user.services.js";
 
 const router = express.Router();
@@ -37,8 +36,6 @@ router.get("/allUsers", auth, async (req, res) => {
 });
 
 router.post("/signup", signup);
-
-router.get("/verify/:userId/:uniqueString", signupFinish);
 
 router.post("/login", login);
 

@@ -2,7 +2,7 @@ import { client } from "../index.js";
 import jwt from "jsonwebtoken";
 import bcrypt from "bcryptjs";
 import crypto from "crypto";
-import { sendEmail, sendVerificationEmail } from "../utils/email.js";
+import { sendEmail } from "../utils/email.js";
 import { ObjectId } from "mongodb";
 
 // HASHING THE PASSWORD
@@ -197,8 +197,8 @@ export const forgotPassword = async (req, res, next) => {
       }
     );
 
-  const resetUrl = `${req.protocol}://localhost:3000/resetPassword/${resetToken}`;
-  // const resetUrl = `https://the-bulk-email-sender.vercel.app/resetPassword/${resetToken}`;
+  // const resetUrl = `${req.protocol}://localhost:3000/resetPassword/${resetToken}`;
+  const resetUrl = `https://password-reset-frontend-six.vercel.app/resetPassword/${resetToken}`;
 
   const message = `Forgot your password? Click on this link to submit a new request to reset your password to: ${resetUrl} .\n This link expires in 10 minutes .\nIf you didn't forget your password, please ignore this email!`;
 
